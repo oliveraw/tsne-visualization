@@ -20,7 +20,7 @@ In VSCode, an "Open Browser" prompt should popup. Click this button in VSCode to
 
 ## How is the Visualization Created? 
 
-The json and image links should be pre-populated if you are git cloning this repo, so you shouldn't need to change these.
+**The json and image links should be pre-populated if you are git cloning this repo, so you shouldn't need to change these.**
 
 * The tSNE data points are read in from `data_jsons/net1_tsne_data.json`.
 * The images themselves are loaded into the `public` directory as a symbolic link.
