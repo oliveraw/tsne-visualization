@@ -10,6 +10,12 @@ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.5/install.sh | bash
 nvm install node
 ```
 
+Go into the project directory and install the required dependencies from the `package.json` file:
+```bash
+cd tsne-visualization
+npm install
+```
+
 Then, run the development server through the VSCode terminal:
 
 ```bash
