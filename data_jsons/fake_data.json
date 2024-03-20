@@ -1,0 +1,25 @@
+{
+    "data": [
+        {
+            "class": "Algae",
+            "x": 1.2,
+            "y": 2.1,
+            "noisy": true,
+            "filepath": "Algae/C6_L3_F2631_T20210323_155318_988_objectID3572.jpg"
+        },
+        {
+            "class": "Algae",
+            "x": 2.5,
+            "y": 2.7,
+            "noisy": false,
+            "filepath": "Algae/742759-0429191938172-Cam4_objectID28207.jpg"
+        },
+        {
+            "class": "Bird",
+            "x": 1.5,
+            "y": 1.7,
+            "noisy": true,
+            "filepath": "Bird/P1_20170225_101116_906_23390_57862_objectID27287.jpg"
+        }
+    ]
+}
