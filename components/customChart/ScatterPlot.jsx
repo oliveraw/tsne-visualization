@@ -1,3 +1,5 @@
+// based on: https://codesandbox.io/p/sandbox/quirky-yalow-3y6q4?file=%2Fsrc%2FApp.js%3A10%2C36
+
 import React, { useRef, useEffect, useState } from "react";
 import {
     select,
@@ -182,7 +184,7 @@ const ScatterPlot = ({ data, updateImage, id = "myZoomableScatterPlot" }) => {
         <React.Fragment>
             <div className="h-full w-full">
                 <div className="font-bold">USGS TSNE Visualization - Final Layer Resnet Features After Training, Hollow Circles = Noisy</div>
-                <div>Hover a point to see the corresponding image, scroll to zoom -- zooming may decrease your lag as less points will be rendered</div>
+                <div>Hover a point to see the corresponding image, drag to pan, scroll to zoom -- zooming may decrease your lag as less points will be rendered</div>
                 <div ref={wrapperRef}>
                     <Chart dimensions={updatedDimensions} svgRef={svgRef}>
                         <XAxis scale={xScale} />
@@ -199,14 +201,13 @@ const ScatterPlot = ({ data, updateImage, id = "myZoomableScatterPlot" }) => {
                                         stroke={hovered == i ? "black" : color(d.class)}
                                         fill={d.noisy ? "white" : color(d.class)}
                                         onMouseEnter={() => {
-                                            console.log("touch start")
                                             updateImage(d.filepath, d.class)
                                             setHovered(i)
                                         }}
                                     />
                                 })}
                         </g>
-                    {/* <rect
+                        {/* <rect
                         className="reset-listening-rect"
                         width={dimensions.width}
                         height={dimensions.height}
@@ -221,13 +222,17 @@ const ScatterPlot = ({ data, updateImage, id = "myZoomableScatterPlot" }) => {
                     {allClasses.map((c, i) => {
                         const clr = `background-color: ${displayClasses.includes(c) ? color(c) : "#686363"};`
                         return <div
-                            class="w-24 text-center rounded-md hover:border-black hover:border-2"
+                            class="w-24 h-10 text-center rounded-md hover:border-black hover:border-2"
                             style={{ "background-color": displayClasses.includes(c) ? color(c) : "#686363" }}
                             onClick={() => toggleDisplayClass(c)}
                         >
                             {c}
                         </div>
                     })}
+                    {/* <div
+                        class="w-24 h-10 text-center rounded-md bg-slate-200 hover:border-black hover:border-2"
+                        onClick={() => {}}
+                    >Toggle All</div> */}
                 </div>
             </div>
         </React.Fragment>

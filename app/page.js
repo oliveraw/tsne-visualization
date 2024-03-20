@@ -27,7 +27,7 @@ export default function Home() {
             <div className="m-4">
                 <ScatterPlot data={data} updateImage={updateImage} />
             </div>
-            <div className="flex flex-col justify-center items-center">
+            <div className="flex flex-col justify-center items-center m-4">
                 <div>{displayClass}</div>
                 <Image
                     src={displayImage}
