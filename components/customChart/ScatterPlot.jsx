@@ -122,10 +122,13 @@ const ScatterPlot = ({ data, updateImage, id = "myZoomableScatterPlot" }) => {
                 const { k: prevK, x: prevX, y: prevY } = currentGlobalZoomState;
                 const point = center(event, svg);
 
-                const isZoomingX =
-                    point[0] > DIMENSIONS.marginLeft + 50 && point[0] < boundedWidth;
-                const isZoomingY =
-                    point[1] > DIMENSIONS.marginTop && point[1] < boundedHeight - 50;
+                // const isZoomingX =
+                //     point[0] > DIMENSIONS.marginLeft + 50 && point[0] < boundedWidth;
+                // const isZoomingY =
+                //     point[1] > DIMENSIONS.marginTop && point[1] < boundedHeight - 50;
+                // console.log(isZoomingX, isZoomingY)
+                const isZoomingX = true     // don't ever want to just zoom one axis at a time
+                const isZoomingY = true
 
                 /* 
                   Getting the transformations arguments from the new and the previous
@@ -208,13 +211,13 @@ const ScatterPlot = ({ data, updateImage, id = "myZoomableScatterPlot" }) => {
                                 })}
                         </g>
                         {/* <rect
-                        className="reset-listening-rect"
-                        width={dimensions.width}
-                        height={dimensions.height}
-                        x={-DIMENSIONS.marginLeft}
-                        y={-DIMENSIONS.marginTop}
-                        fill="transparent"
-                    /> */}
+                            className="reset-listening-rect"
+                            width={dimensions.width}
+                            height={dimensions.height}
+                            x={-DIMENSIONS.marginLeft}
+                            y={-DIMENSIONS.marginTop}
+                            fill="transparent"
+                            /> */}
                     </Chart>
                 </div>
                 <div class="flex flex-row gap-x-2 m-3">
@@ -231,7 +234,13 @@ const ScatterPlot = ({ data, updateImage, id = "myZoomableScatterPlot" }) => {
                     })}
                     {/* <div
                         class="w-24 h-10 text-center rounded-md bg-slate-200 hover:border-black hover:border-2"
-                        onClick={() => {}}
+                        onClick={() => {
+                            if (displayClasses.length === 0) {
+                                setDisplayClasses(allClasses)
+                            } else {
+                                setDisplayClasses([])
+                            }
+                        }}
                     >Toggle All</div> */}
                 </div>
             </div>
